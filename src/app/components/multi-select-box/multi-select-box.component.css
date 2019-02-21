@@ -1,0 +1,67 @@
+.box {
+    background-color: #e5e5e5;
+    border-radius: 4px;
+    padding: 8px;
+    height: 44vh;
+    overflow-y: scroll;
+}
+
+.item {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #e1e1e1;
+    color: #B2D235;
+    background-color: #ffffff;
+    padding: 4px;
+    overflow-x: hidden;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item-active {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #e1e1e1;
+    color: #ffffff;
+    background-color: #B2D235;
+    padding: 4px;
+    overflow-x: hidden;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.center {
+    text-align: center;
+}
+
+.pd-action {
+    padding: 10vh;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.mgb {
+    margin-bottom: 14px;
+}
+
+.in-search {
+    width: 100%;
+    padding: 2px;
+    padding-right: 22px;
+}
+
+.ic-search {
+    position: absolute;
+    right: 20px;
+    top: 6px;
+}
+
+.count {
+    position: absolute;
+    right: 18px;
+    top: -24px;
+}

@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MultiSelectBoxComponent } from './components/multi-select-box/multi-select-box.component';
+import { TrafficImpactComponent } from './pages/traffic-impact/traffic-impact.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MultiSelectBoxComponent,
+    TrafficImpactComponent
   ],
   imports: [
     BrowserModule
