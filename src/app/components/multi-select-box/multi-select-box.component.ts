@@ -15,7 +15,9 @@ export class MultiSelectBoxComponent implements OnInit, AfterViewChecked {
   selectedItem: any = {};
   unselectedItem: any = {};
   dataFilterListLeft: Array<any> = [];
+  ownList: Array<any> = [];
   dataListRight: Array<any> = [];
+  keyword: any = '';
   constructor() { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class MultiSelectBoxComponent implements OnInit, AfterViewChecked {
         active: false
       });
     });
+    this.ownList = this.dataFilterListLeft;
   }
 
   ngAfterViewChecked() {
@@ -107,5 +110,19 @@ export class MultiSelectBoxComponent implements OnInit, AfterViewChecked {
 
   outputEmitter() {
     this.selectedList.emit(this.dataListRight);
+  }
+
+  filter(e) {
+    if (e) {
+      const reg = new RegExp(e, 'g');
+      const datas = this.ownList.filter(el => {
+        if (el.name.match(reg) || el.name.match(reg)) {
+          return el;
+        }
+      });
+      this.dataFilterListLeft = datas;
+    } else {
+      this.dataFilterListLeft = this.ownList;
+    }
   }
 }
