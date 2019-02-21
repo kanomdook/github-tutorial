@@ -32,11 +32,12 @@
       <div class="row center">
         <div class="col-md-12 pd-action">
           <button type="button" class="btn btn-success" (click)="confirmSelect()"
-            [disabled]="dataListRight.length >= 10"><b class="color-white">เลือก</b></button>
+            [disabled]="dataListRight.length >= 10"><b class="color-white"><i class="fa fa-arrow-alt-circle-right"
+                aria-hidden="true"></i></b></button>
         </div>
         <div class="col-md-12">
-          <button type="button" class="btn btn-danger"><b class="color-white">
-              ไม่เลือก</b>
+          <button type="button" class="btn btn-danger" (click)="confirmUnselect()" [disabled]="dataListRight.length <= 0"><b class="color-white">
+              <i class="fa fa-arrow-alt-circle-left" aria-hidden="true"></i></b>
           </button>
         </div>
       </div>
@@ -44,7 +45,8 @@
     <div class="col-md-3">
       <div class="count">เลือกแล้ว {{dataListRight.length}} / 10</div>
       <div class="box">
-        <div [ngClass]="item.active ? 'item-active': 'item'" *ngFor="let item of dataListRight;let i = index" (click)="unselected(item, i)">
+        <div [ngClass]="item.active ? 'item-active': 'item'" *ngFor="let item of dataListRight;let i = index"
+          (click)="unselected(item, i)">
           {{item.name}}
         </div>
       </div>

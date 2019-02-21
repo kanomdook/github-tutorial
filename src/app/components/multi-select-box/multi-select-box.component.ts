@@ -19,16 +19,6 @@ export class MultiSelectBoxComponent implements OnInit, AfterViewChecked {
   constructor() { }
 
   ngOnInit() {
-    this.dataList = ['3MWBPL1H-11-BPL1H',
-      '3RWTWA1H-11-BPL1H',
-      '3MWBPL1H-11-RGTTC',
-      'DTN-SSNK1-3SBCBPL1M-X',
-      'DTN-SSNK1-3SBCBPL1M-XX1',
-      'DTN-SSNK1-3SBCBPL1M-XX2',
-      'DTN-SSNK1-3SBCBPL1M-XX3',
-      'DTN-SSNK1-3SBCBPL1M-XX',
-      'DTN-SSNK1-3SBCBPL1M-XZ',
-      'DTN-SSNK1-3SBCBPL1M-XY'];
     this.dataList.forEach(el => {
       this.dataFilterListLeft.push({
         name: el,
@@ -87,5 +77,35 @@ export class MultiSelectBoxComponent implements OnInit, AfterViewChecked {
         }
       });
     });
+    this.selectedItem = {};
+    this.outputEmitter();
+  }
+
+  confirmUnselect() {
+    this.dataListRight.forEach((el, i) => {
+      if (el.active) {
+        const filters = this.dataFilterListLeft.filter(item => {
+          return item.name === el.name;
+        });
+        if (filters.length <= 0) {
+          el.active = false;
+          this.dataFilterListLeft.push(el);
+        }
+      }
+    });
+
+    this.dataFilterListLeft.forEach(el => {
+      this.dataListRight.forEach((item, i) => {
+        if (el.name === item.name) {
+          this.dataListRight.splice(i, 1);
+        }
+      });
+    });
+    this.unselectedItem = {};
+    this.outputEmitter();
+  }
+
+  outputEmitter() {
+    this.selectedList.emit(this.dataListRight);
   }
 }
