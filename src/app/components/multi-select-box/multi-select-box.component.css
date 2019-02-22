@@ -12,7 +12,7 @@
     border: 1px solid #e1e1e1;
     color: #B2D235;
     background-color: #ffffff;
-    padding: 4px;
+    padding: 6px;
     overflow-x: hidden;
     margin-bottom: 4px;
     white-space: nowrap;
@@ -25,7 +25,7 @@
     border: 1px solid #e1e1e1;
     color: #ffffff;
     background-color: #B2D235;
-    padding: 4px;
+    padding: 6px;
     overflow-x: hidden;
     margin-bottom: 4px;
     white-space: nowrap;
@@ -64,4 +64,17 @@
     position: absolute;
     right: 18px;
     top: -24px;
+}
+
+.empty-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    order: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #9b9b9b;
+    font-size: x-large;
 }
